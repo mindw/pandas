@@ -40,6 +40,7 @@ class StringMixin(object):
         """
         return str(self)
 
+
 class PandasObject(StringMixin):
     """baseclass for various pandas objects"""
 
