@@ -15,7 +15,9 @@ import pandas.lib as lib
 import pandas.tslib as tslib
 
 from pandas import compat
-from pandas.compat import StringIO, BytesIO, range, long, u, zip, map
+from pandas.compat import (StringIO, BytesIO, range, long, u, zip, map,
+                           string_types)
+
 from pandas.core.config import get_option
 from pandas.core import array as pa
 import pandas as pd
@@ -1527,7 +1529,7 @@ def is_bool(obj):
 
 
 def is_string(obj):
-    return isinstance(obj, basestring)
+    return isinstance(obj, string_types)
 
 
 def is_series(obj):
