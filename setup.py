@@ -56,9 +56,33 @@ else:
     min_numpy_ver = '1.6.1'
     setuptools_kwargs = {
         'install_requires': ['python-dateutil',
-                            'pytz >= 2011k',
+                             'pytz >= 2011k',
                              'numpy >= %s' % min_numpy_ver],
         'setup_requires': ['numpy >= %s' % min_numpy_ver],
+        'extras_require': {
+            'recommended': [
+                'numexpr',
+                'bottleneck',
+                'matplotlib',
+                'statsmodels',
+                'scipy',
+            ],
+            "compat:python_version=='2.6'": "simplejson",
+            'auth': ['httplib2', 'apiclient', 'oauth2client', 'python-gflags'],
+            'io': [
+                'tables',
+                'blosc',
+                'boto',
+                'xlrd',
+                'xlwt',
+                'openpyxl',
+                'xlsxwriter'
+            ],
+            'R': ['rpy2'],
+            'html': ['lxml', 'beautifulsoup4', 'html5lib'],
+            'test': ['nose', 'ipython'],
+            "test:sys_platform=='unix'": ['pudb'],
+        },
         'zip_safe': False,
     }
 
@@ -503,7 +527,7 @@ else:
     macros = [('__LITTLE_ENDIAN__', '1')]
 
 msgpack_ext = Extension('pandas.msgpack',
-                        sources = [srcpath('msgpack',
+                        sources=[srcpath('msgpack',
                                    suffix=suffix if suffix == '.pyx' else '.cpp',
                                    subdir='')],
                         language='c++',
