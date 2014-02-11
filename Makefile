@@ -6,6 +6,7 @@ tseries: pandas/lib.pyx pandas/tslib.pyx pandas/hashtable.pyx
 clean: clean_pyc
 	-rm -rf build dist
 	-find . -name '*.so' -exec rm {} \;
+	-find . -name '*.pdb' -exec rm {} \;
 
 clean_pyc:
 	-find . -name '*.pyc' -exec rm {} \; -or -name '*.pyo' -exec rm {} \;
